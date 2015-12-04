@@ -7,10 +7,20 @@ en:
       title_link_home: "Ruby on Rails Tutorial"
       temp_title: "sample application."
       home: "Home"
-      login: "Log in"
+      logout: "Log out"
+      profile: "Profile"
+      settings: "Settings"
       logo: "TMS34"
       about: "About"
       footer: "Create by TMS34 team Framgia"
+      account: "Account"
+
   errors:
     course:
       start_end: "Start date can not greater than end_date"
+  flash:
+    login_failed: "Invalid email/password combination"
+  sessions:
+    new:
+      login: "Log in"
+      remember: "Remember me on this computer"
