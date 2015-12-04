@@ -11,3 +11,6 @@ en:
       logo: "TMS34"
       about: "About"
       footer: "Create by TMS34 team Framgia"
+  errors:
+    course:
+      start_end: "Start date can not greater than end_date"
