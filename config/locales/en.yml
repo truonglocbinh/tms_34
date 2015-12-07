@@ -41,6 +41,12 @@ en:
         deadline: "Deadline"
       subject:
         name: "Subject"
+      users: "Users"
+      allUser: "All users"
+      showall: "Show all members"
+      showProfile: "Show profile"
+      nameShow: "Name"
+      emailShow: "Email"
   errors:
     title_form: "The form contains"
     course:
