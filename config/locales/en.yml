@@ -9,7 +9,7 @@ en:
       home: "Home"
       logout: "Log out"
       profile: "Profile"
-      settings: "Settings"
+      settings: "Edit Profile"
       logo: "TMS34"
       about: "About"
       footer: "Create by TMS34 team Framgia"
@@ -24,3 +24,12 @@ en:
     new:
       login: "Log in"
       remember: "Remember me on this computer"
+      danger: "Please log in."
+  users:
+    edit:
+      edit_profile: "Edit Profile"
+      update_profile: "Update your profile"
+      save_profile: "Save changes"
+  user:
+    update: "update success"
+
