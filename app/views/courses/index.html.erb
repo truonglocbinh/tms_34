@@ -1,0 +1,14 @@
+<div class="row">
+  <div id="courses" class="col-md-8 col-md-offset-2">
+    <% if @courses.count > 0 %>
+      <h3>
+        <%= t ".enrolled_in", course_count: pluralize(@courses.count, t(".course")) %>
+      </h3>
+      <%= render @courses %>
+      <%= will_paginate %>
+    <% else %>
+      <p><%= t(".no_course") %></p>
+    <% end %>
+  </div>
+</div>
+

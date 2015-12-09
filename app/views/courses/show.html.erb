@@ -1,0 +1,54 @@
+<div class="col-md-12">
+    <div class="col-md-9">
+      <div class="block">
+        <h1 class="center">
+          <%= @course.name %>
+        </h1>
+        <p>
+          <%= t ".members" %>
+          <% @members.take(2).each do |member| %>
+            <span>
+              <%= link_to member do %>
+                <%= member.name %>
+              <% end %>
+            </span>
+          <% end %>
+
+          <% if @members.count > 2 %>
+            <a href="#" type="button" data-toggle="modal" data-target="#viewMembers">
+              <%= t ".view_all" %>
+            </a>
+          <% end %>
+        </p>
+        <p>
+          <% @subjects.each do |subject|  %>
+            <%= link_to [@course,@subject] do %>
+                <%= subject.name %>
+              <% end %>
+          <% end %>
+        </p>
+        <p>
+          <%= @course.description %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+<div id="viewMembers" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t ".all_members", course: @course.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render "courses/members" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t "application.buttons.close" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

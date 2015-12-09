@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
                     uniqueness: {case_sensitive: false}
   validates :name, presence: true, length: {maximum: 50}
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+
+  scope :trainees, -> {trainee}
+  scope :supervisors, -> {supervisor}
+  scope :excluded, -> user {where.not id: user.id}
+
   before_save :downcase_email
   has_secure_password
 

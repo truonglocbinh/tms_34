@@ -1,0 +1,7 @@
+<div class="row">
+  <% @members.each do |member| %>
+    <div class="col-md-3">
+      <%= link_to member.name, member, class: "center" %>
+    </div>
+  <% end %>
+</div>

@@ -14,22 +14,32 @@ en:
       about: "About"
       footer: "Create by TMS34 team Framgia"
       account: "Account"
+      closed: "Closed"
 
   errors:
+    title_form: "The form contains"
     course:
       start_end: "Start date can not greater than end_date"
+
   flash:
     login_failed: "Invalid email/password combination"
+    required_login: "You must login to view this resources"
+
   sessions:
     new:
       login: "Log in"
       remember: "Remember me on this computer"
       danger: "Please log in."
+
   users:
     edit:
       edit_profile: "Edit Profile"
       update_profile: "Update your profile"
       save_profile: "Save changes"
-  user:
     update: "update success"
-
+  courses:
+    index:
+      enrolled_in: "You have been assigned to %{course_count}"
+      course: "course"
+    show:
+      members: "Members: "
