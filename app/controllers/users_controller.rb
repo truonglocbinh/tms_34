@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update user_params
-      flash[:success] = t "user.update"
+      flash[:success] = t "users.update"
       redirect_to root_url
     else
       render :edit

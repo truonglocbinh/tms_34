@@ -39,4 +39,11 @@ module SessionsHelper
   def current_user? user
     user == current_user
   end
+
+  def authenticate_user!
+    unless logged_in?
+      flash[:danger] = t "application.flash.required_login"
+      redirect_to login_path
+    end
+  end
 end

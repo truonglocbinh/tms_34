@@ -12,6 +12,9 @@ class Course < ActiveRecord::Base
   validates :status, presence: true
   validates :start_date, presence: true
 
+  scope :latest, -> {order created_at: :desc}
+  scope :active, -> {where "is_active = ?" , true}
+
   private
   def end_date_greate_or_equal_than_start_date
     if start_date > end_date
