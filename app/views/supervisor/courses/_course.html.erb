@@ -1,0 +1,35 @@
+<tr>
+  <td><%= course.name %></td>
+  <td><%= course.status %></td>
+  <td><%= link_to t("application.button.up_subject"),
+    supervisor_course_course_subjects_path(course), class: "btn btn-primary" %></td>
+  <td><%= course.start_date %></td>
+  <td><%= course.end_date %></td>
+  <td>
+    <% if course.create_by == current_user.id %>
+      <span class="label label-danger"><%= t "application.label.owner"%></span>
+    <% elsif course.users.include? current_user %>
+      <span class="label label-success"><%= t "application.label.super" %></span>
+    <% else %>
+      <span class="label label-warning"><%= t "application.lable.other"%></span>
+    <% end %>
+  </td>
+  <td>
+    <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <% if course.create_by == current_user.id %>
+      <li>
+        <%= link_to t("application.button.edit"), edit_supervisor_course_path(course) %>
+      </li>
+      <li>
+        <%= link_to t("application.button.delete"), supervisor_course_path(course),
+          method: :delete, data: {confirm: t("application.general.confirm")} %>
+      </li>
+      <% end %>
+      <li><%= link_to t("application.button.show"),"#" %></li>
+    </ul>
+    </div>
+  </td>
+</tr>

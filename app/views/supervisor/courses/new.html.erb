@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= t "supervisor.courses.new.new_course" %></h1>
+  </div>
+</div>
+<div class="row new-course">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:supervisor, @course] do |f| %>
+      <%= render "shared/error_messages", object: @course %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", rows: 10 %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :start_date, t("application.model.start_date") %>
+        <div class="input-group date datetimepicker">
+          <%= f.text_field :start_date, class: "form-control",
+            data: { date_format: "YYYY/MM/DD" } %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :end_date, t("application.model.end_date") %>
+        <div class="input-group date datetimepicker" >
+          <%= f.text_field :end_date, class: "form-control",
+            data: { date_format: "YYYY/MM/DD" } %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+
+      <%= f.hidden_field :create_by, value: current_user.id %>
+      <%= f.hidden_field :status, value: :pending %>
+      <div>
+        <%= f.fields_for :course_subjects do |builder| %>
+          <% subject = builder.object.subject %>
+          <div>
+            <%= builder.check_box :subject_id,
+              {checked: builder.object.persisted?, class: "form-control"},
+              subject.id, '' %>
+            <%= subject.name %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= f.submit t("application.button.create_course"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

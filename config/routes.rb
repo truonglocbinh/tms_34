@@ -9,4 +9,12 @@ Rails.application.routes.draw do
   resources :courses do
     resources :subjects
   end
+
+  namespace :supervisor do
+    root "courses#index"
+    resources :subjects
+    resources :courses  do
+      resources :course_subjects
+    end
+   end
 end

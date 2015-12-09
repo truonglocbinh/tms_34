@@ -1,0 +1,25 @@
+<h1><%= t "application.model.subject.name" %></h1>
+<%= form_for @course, url: supervisor_course_path(@course) do |f| %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td><%= t ".name" %></td>
+        <td><%= t ".description"%> </td>
+        <td><%= t "application.button.up_subject" %></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @subjects.each do |sub| %>
+      <tr>
+        <td><%= sub.name %></td>
+        <td><%= sub.description %></td>
+        <td>
+          <%= check_box_tag "course[subject_ids][]", sub.id,
+            @course.subjects.include?(sub) %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit t("application.button.update"), class: "btn btn-success btn-lg" %>
+<% end %>
