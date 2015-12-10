@@ -1,0 +1,4 @@
+<h2><%= @subject.name %></h2>
+<% @subject.tasks.each do |task| %>
+  <%= t("supervisor.tasks.taskName") %><%= task.name %><br/>
+<% end %>
