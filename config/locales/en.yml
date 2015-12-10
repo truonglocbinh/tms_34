@@ -1,4 +1,7 @@
 en:
+  date:
+    formats:
+      default: "%Y-%m-%d"
   application:
     general:
       base_title: "System Management Training"
@@ -18,6 +21,7 @@ en:
       confirm: "Are you sure ?"
       course: "Course"
       subject: "Subject"
+      date_format: "YYYY/MM/DD"
     button:
       create_course: "Create"
       edit: "Edit"
@@ -88,6 +92,7 @@ en:
       new:
        title: "All Courses"
        new_course: "New Course"
+       edit_course: "Edit course"
     course_subjects:
       no_subject: "No Subject for course"
       name: "Name"

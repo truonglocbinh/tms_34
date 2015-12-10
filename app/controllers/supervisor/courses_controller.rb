@@ -1,6 +1,6 @@
 class Supervisor::CoursesController < Supervisor::BaseController
   before_action :load_course, except: [:index, :new, :create]
-  before_action :verify_supervisor, only: [:update]
+  before_action :verify_supervisor, only: [:edit, :update]
 
   def index
     @courses = Course.all.paginate page: params[:page]
@@ -28,20 +28,28 @@ class Supervisor::CoursesController < Supervisor::BaseController
     end
   end
 
+  def edit
+    @subjects = Subject.all
+    (Subject.all - @course.subjects).each do |subject|
+      @course.course_subjects.build subject: subject
+    end
+  end
+
   def update
+    byebug
     if @course.update_attributes course_params
       flash[:success] = t "flash.subject_update_success"
-      redirect_to :back
+      redirect_to supervisor_root_url
     else
       flash[:danger] = t "flash.subject_update_failed"
-      redirect_to :back
+      render :edit
     end
   end
 
   private
   def course_params
     params.require(:course).permit :name, :description, :start_date, :end_date,
-      :status, :create_by, course_subjects_attributes:[:id, :course_id, :subject_id]
+      :status, :create_by, course_subjects_attributes:[:id, :course_id, :subject_id, :_destroy]
   end
 
   def load_course
