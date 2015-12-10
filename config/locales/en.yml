@@ -24,6 +24,7 @@ en:
       show: "Detail"
       update: "Update"
       up_subject: "Assign Subject"
+      submit: "Subit"
     label:
       owner: "Owner"
       super: "Supervisor"
@@ -60,6 +61,7 @@ en:
     subject_update_success: "Subject update success"
     subject_update_failed: "Subject update failed"
     create_course: "Create Course success"
+    create_subject: "Create subject success"
   sessions:
     new:
       login: "Log in"
@@ -86,3 +88,12 @@ en:
       no_subject: "No Subject for course"
       name: "Name"
       description: "Description"
+    subjects:
+      allSubject: "All subjects"
+      newSubject: "Create subject"
+      newButton: "New subject"
+      emptySubject: "There are no subjects to show"
+      nameTask: "Task name"
+      submit: "Submit"
+    tasks:
+      taksName: "Task"

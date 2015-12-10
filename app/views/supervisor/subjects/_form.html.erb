@@ -1,0 +1,24 @@
+<%= form_for [:supervisor, @subject] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <%= f.fields_for :tasks do |builder| %>
+    <%= render "task_fields", f: builder %>
+  <% end %>
+  <p><%= link_to_add_fields t("new_task"), f, :tasks %></p>
+  <ul class="list-inline">
+    <li>
+      <%= f.submit t("application.button.submit"), class: "btn btn-success" %>
+    </li>
+    <li>
+      <%= button_tag t("application.buttons.reset"), type: :reset,
+        class: "btn btn-default" %>
+    </li>
+  </ul>
+<% end %>
