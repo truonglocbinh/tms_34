@@ -17,6 +17,7 @@ en:
       closed: "Closed"
       confirm: "Are you sure ?"
       course: "Course"
+      subject: "Subject"
     button:
       create_course: "Create"
       edit: "Edit"
@@ -62,6 +63,9 @@ en:
     subject_update_failed: "Subject update failed"
     create_course: "Create Course success"
     create_subject: "Create subject success"
+    update_subject: "Update subject success"
+    delete_subject: "Delete subject seccessfully!"
+    cannot_delete_subject: "You cannot delete this subject!"
   sessions:
     new:
       login: "Log in"
@@ -93,7 +97,8 @@ en:
       newSubject: "Create subject"
       newButton: "New subject"
       emptySubject: "There are no subjects to show"
-      nameTask: "Task name"
+      nameTask: "Task "
       submit: "Submit"
+      editSubject: "Edit subject"
     tasks:
       taksName: "Task"

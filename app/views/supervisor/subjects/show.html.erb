@@ -1,4 +1,14 @@
-<h2><%= @subject.name %></h2>
+<% provide :title, t("application.general.subject") %>
+<div class="page-header">
+  <h2><%= @subject.name %></h2>
+  <ul class="list-inline pull-left">
+    <li><%= link_to t("application.buttons.edit"),
+        edit_supervisor_subject_path(@subject), class: "btn btn-primary" %></li>
+    <li><%= link_to t("application.buttons.delete"),[:supervisor, @subject], method: :delete, data: {confirm: t("application.general.confirm")}, class: "btn btn-danger" %></li>
+  </ul>
+</div>
+<br>
+<br>
 <% @subject.tasks.each do |task| %>
-  <%= t("supervisor.tasks.taskName") %><%= task.name %><br/>
+  <h2><%= t("supervisor.tasks.taskName") %><%= task.name %><br/></h2>
 <% end %>

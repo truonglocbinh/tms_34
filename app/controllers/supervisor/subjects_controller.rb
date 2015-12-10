@@ -13,6 +13,27 @@ class Supervisor::SubjectsController < ApplicationController
     @subject.tasks.build
   end
 
+  def edit
+  end
+
+  def update
+    if @subject.update_attributes subject_params
+      flash[:success] = t "flash.update_subject"
+      redirect_to [:supervisor, @subject]
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @subject.destroy
+      flash[:success] = t "flash.delete_subject"
+      redirect_to supervisor_subjects_path
+    else
+      flash[:error] = t "flash.cannot_delete_subject"
+    end
+  end
+
   def create
     @subject = Subject.new subject_params
     if @subject.save
