@@ -15,22 +15,50 @@ en:
       footer: "Create by TMS34 team Framgia"
       account: "Account"
       closed: "Closed"
-
+      confirm: "Are you sure ?"
+      course: "Course"
+    button:
+      create_course: "Create"
+      edit: "Edit"
+      delete: "Delete"
+      show: "Detail"
+      update: "Update"
+      up_subject: "Assign Subject"
+    label:
+      owner: "Owner"
+      super: "Supervisor"
+      other: "No role"
+    model:
+      course:
+        name: "Name"
+        description: "Description"
+        status: "Status"
+        start_date: "Start"
+        end_date: "End"
+        role: "Role"
+        action: "Action"
+      course_subject:
+        deadline: "Deadline"
+      subject:
+        name: "Subject"
   errors:
     title_form: "The form contains"
     course:
       start_end: "Start date can not greater than end_date"
+      blank: "Date can not blank"
 
   flash:
     login_failed: "Invalid email/password combination"
     required_login: "You must login to view this resources"
-
+    only_supervisor: "You are not supervisor "
+    subject_update_success: "Subject update success"
+    subject_update_failed: "Subject update failed"
+    create_course: "Create Course success"
   sessions:
     new:
       login: "Log in"
       remember: "Remember me on this computer"
       danger: "Please log in."
-
   users:
     edit:
       edit_profile: "Edit Profile"
@@ -43,3 +71,12 @@ en:
       course: "course"
     show:
       members: "Members: "
+  supervisor:
+    courses:
+      new:
+       title: "All Courses"
+       new_course: "New Course"
+    course_subjects:
+      no_subject: "No Subject for course"
+      name: "Name"
+      description: "Description"

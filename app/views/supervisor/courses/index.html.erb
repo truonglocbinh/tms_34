@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-6">
+    <h3><%= t "supervisor.courses.new.title" %></h3>
+  </div>
+  <div class="col-md-6 button-course">
+    <%= link_to t("supervisor.courses.new.new_course"),
+      new_supervisor_course_path, class: "btn btn-danger" %>
+  </div>
+</div>
+<div class="row course-view">
+  <table class="table table-hover panel panel-default">
+    <tr>
+      <td><%= t "application.model.course.name" %></td>
+      <td><%= t "application.model.course.status" %></td>
+      <td><%= t "application.button.up_subject" %></td>
+      <td><%= t "application.model.course.start_date" %> </td>
+      <td><%= t "application.model.course.end_date" %> </td>
+      <td><%= t "application.model.course.role" %> </td>
+      <td><%= t "application.model.course.action" %> </td>
+    </tr>
+    <% if @courses.size > 0 %>
+      <%= render @courses %>
+    <% end %>
+  </table>
+</div>
+<%= will_paginate %>
+

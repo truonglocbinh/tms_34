@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
+$(document).on("ready page:load", function(event) {
+  $(function() {
+    $(".datetimepicker").datetimepicker();
+  });
+});
