@@ -115,10 +115,39 @@ h1 {
   margin-left: 0;
 }
 
+
 .button-course{
   padding-top: 10px;
 }
 
 .new-course{
   padding-bottom: 50px;
+.row.information {
+  border: 1px solid #000099;
+  width:600px;
+  margin-top: 40px;
+  margin-left:150px;
+  height:70px;
+  .row1 {
+    margin-top:10px;
+    span {
+      color: #FF6600;
+    }
+  }
+  .row2{
+    margin-top:10px;
+    span {
+      color: #FF6600;
+    }
+  }
+}
+.table.table-bordered {
+  border: 1px solid #000099;
+}
+hr {
+  color: #fff;
+  height: 1px;
+  width:80%;
+  float:left;
+  background-color: #000099;
 }
