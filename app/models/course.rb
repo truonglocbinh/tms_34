@@ -15,13 +15,12 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :course_subjects, allow_destroy: true,
     reject_if: proc {|a| a[:subject_id].blank? || a[:subject_id] == "0"}
 
-
   scope :latest, -> {order created_at: :desc}
   scope :active, -> {where "is_active = ?" , true}
 
   private
   def add_owner_to_user_course
-    unless UserCourse.find_by(user_id: create_by)
+    unless UserCourse.find_by(user_id: create_by, course_id: id)
       UserCourse.create!(user_id: create_by, course_id: id, is_active: false)
     end
   end
