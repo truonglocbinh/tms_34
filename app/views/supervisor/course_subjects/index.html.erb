@@ -1,25 +1,25 @@
 <h1><%= t "application.model.subject.name" %></h1>
-<%= form_for @course, url: supervisor_course_path(@course) do |f| %>
   <table class="table table-striped">
     <thead>
       <tr>
         <td><%= t ".name" %></td>
         <td><%= t ".description"%> </td>
-        <td><%= t "application.button.up_subject" %></td>
+        <td><%= t ".status" %></td>
       </tr>
     </thead>
     <tbody>
-      <% @subjects.each do |sub| %>
+      <% @course_subjects.each do |course_subject| %>
       <tr>
-        <td><%= sub.name %></td>
-        <td><%= sub.description %></td>
+        <td><%= link_to course_subject.subject.name,
+        supervisor_subject_path(course_subject.subject) %></td>
+        <td><%= course_subject.subject.description.truncate 100 %></td>
         <td>
-          <%= check_box_tag "course[subject_ids][]", sub.id,
-            @course.subjects.include?(sub) %>
+          <% if course_subject.status.nil? %>
+            <%= link_to t(".start"), "#", class: "btn btn-danger" %>
+          <% end %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
-  <%= f.submit t("application.button.update"), class: "btn btn-success btn-lg" %>
-<% end %>
+
