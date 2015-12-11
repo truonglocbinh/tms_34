@@ -22,4 +22,6 @@ module ApplicationHelper
     link_to label, "#", onclick: "add_fields(this, \"#{assoc}\",
       \"#{escape_javascript(fields)}\")", remote: true
   end
+
+
 end

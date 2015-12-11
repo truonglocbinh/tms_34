@@ -2,13 +2,13 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_course, :authorize_user, only: :show
   def index
-    @courses = current_user.courses.active.latest.paginate page: params[:page],
-      per_page: 10
+    @user_courses = current_user.user_courses.paginate page: params[:page], per_page: 10
   end
 
   def show
     @members = @course.users.trainees
-    @subjects = @course.subject
+    @subjects = @course.subjects
+    @user_subjects = UserSubject.by_user_of_subject(@course,current_user)
   end
 
   private
