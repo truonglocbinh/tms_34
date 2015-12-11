@@ -1,6 +1,7 @@
 class Supervisor::CoursesController < Supervisor::BaseController
   before_action :load_course, except: [:index, :new, :create]
   before_action :verify_supervisor, only: [:edit, :update]
+  before_action :verify_owner, only: [:destroy]
 
   def index
     @courses = Course.all.paginate page: params[:page]
@@ -36,13 +37,22 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def update
-    byebug
     if @course.update_attributes course_params
       flash[:success] = t "flash.subject_update_success"
       redirect_to supervisor_root_url
     else
       flash[:danger] = t "flash.subject_update_failed"
       render :edit
+    end
+  end
+
+  def destroy
+    if @course.destroy
+      flash[:success] = t "flash.destroy_ok"
+      redirect_to supervisor_root_url
+    else
+      flash[:danger] = t "flash.destroy_failed"
+      redirect_to supervisor_root_url
     end
   end
 
@@ -60,6 +70,14 @@ class Supervisor::CoursesController < Supervisor::BaseController
     unless @course.users.include? current_user
       flash[:danger] = t "flash.only_supervisor"
       redirect_to :back
+    end
+  end
+
+  def verify_owner
+    @user = User.find_by_id @course.create_by
+    if @user != current_user
+      flash[:danger] =  t "flash.owner"
+      redirect_to supervisor_root_url
     end
   end
 end
