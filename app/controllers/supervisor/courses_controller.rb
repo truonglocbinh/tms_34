@@ -30,7 +30,6 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def edit
-    @subjects = Subject.all
     (Subject.all - @course.subjects).each do |subject|
       @course.course_subjects.build subject: subject
     end
