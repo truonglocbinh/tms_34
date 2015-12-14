@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     root "courses#index"
     resources :subjects
     resources :courses  do
-      resources :course_subjects
+      resources :course_subjects, :assign_trainees
     end
    end
 end

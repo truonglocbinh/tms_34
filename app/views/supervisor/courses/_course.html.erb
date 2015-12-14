@@ -1,4 +1,4 @@
-<tr>
+<tr class="center">
   <td><%= course.name %></td>
   <td><%= course.status %></td>
   <td><%= link_to t("application.button.up_subject"),
@@ -24,11 +24,15 @@
         <%= link_to t("application.button.edit"), edit_supervisor_course_path(course) %>
       </li>
       <li>
-        <%= link_to t("application.button.delete"), supervisor_course_path(course),
-          method: :delete, data: {confirm: t("application.general.confirm")} %>
+        <%= link_to t("application.button.delete"), supervisor_course_path(course),method: :delete, data: {confirm: t("application.general.confirm")} %>
       </li>
       <% end %>
-      <li><%= link_to t("application.button.show"), supervisor_course_path(course) %></li>
+      <li>
+        <%= link_to t("application.button.show"),
+          supervisor_course_path(course) %>
+      </li>
+      <li><%= link_to t("application.button.show_trainee"),
+        supervisor_course_assign_trainees_path(course) %></li>
     </ul>
     </div>
   </td>

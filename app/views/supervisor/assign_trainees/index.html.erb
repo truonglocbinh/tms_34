@@ -1,0 +1,22 @@
+<h1><%= t ".all_trainee" %></h1>
+<div class="row">
+  <table class="table panel panel-warning">
+    <thead>
+      <tr class="info">
+        <td><%= t ".name"%></td>
+        <td><%= t ".email" %></td>
+        <td><%= t ".status" %></td>
+      </tr>
+    </thead>
+    <tbody>
+    <% @trainees.each do |trainee| %>
+        <tr>
+          <td><%= trainee.name %></td>
+          <td><%= trainee.email %></td>
+          <td><span class="label label-success"><%= t ".active" %></span></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @trainees %>
+</div>
