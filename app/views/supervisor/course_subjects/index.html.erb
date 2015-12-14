@@ -1,25 +1,16 @@
+<div class="errors"></div>
 <h1><%= t "application.model.subject.name" %></h1>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <td><%= t ".name" %></td>
-        <td><%= t ".description"%> </td>
-        <td><%= t ".status" %></td>
-      </tr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td><%= t ".name" %></td>
+      <td><%= t ".description" %></td>
+      <td><%= t ".status" %></td>
+      <td><%= t ".action" %></td>
+    </tr>
     </thead>
     <tbody>
-      <% @course_subjects.each do |course_subject| %>
-      <tr>
-        <td><%= link_to course_subject.subject.name,
-        supervisor_subject_path(course_subject.subject) %></td>
-        <td><%= course_subject.subject.description.truncate 100 %></td>
-        <td>
-          <% if course_subject.status.nil? %>
-            <%= link_to t(".start"), "#", class: "btn btn-danger" %>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
+      <%= render @course_subjects %>
     </tbody>
-  </table>
+</table>
 

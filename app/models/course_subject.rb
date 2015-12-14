@@ -7,4 +7,10 @@ class CourseSubject < ActiveRecord::Base
 
   validates :course_id, uniqueness: {scope: :subject_id}
   accepts_nested_attributes_for :subject
+  before_create :set_default_status
+
+  private
+  def set_default_status
+    self.status = :pending if status.nil?
+  end
 end
