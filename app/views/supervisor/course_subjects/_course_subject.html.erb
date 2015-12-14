@@ -1,0 +1,23 @@
+<tr>
+  <td><%= link_to course_subject.subject.name,
+    supervisor_subject_path(course_subject.subject) %></td>
+  <td><%= course_subject.subject.description.truncate 50 %></td>
+  <td>
+    <% if course_subject.pending? %>
+      <span class="label label-default"><%= course_subject.status %></span>
+    <% elsif course_subject.starting? %>
+      <span class="label label-primary"><%= course_subject.status %></span>
+    <% else %>
+      <span class="label label-danger"><%= course_subject.status %></span>
+    <% end %>
+  </td>
+  <td id="subject-<%= course_subject.subject.id %>">
+    <% if course_subject.pending? %>
+      <%= link_to t(".start"),supervisor_course_course_subject_path(@course,course_subject),
+        method: :put ,remote: true, class: "btn btn-primary" %>
+    <% elsif course_subject.starting? %>
+      <%= link_to t(".closed"),supervisor_course_course_subject_path(@course,course_subject),
+        method: :put ,remote: true, class: "btn btn-warning" %>
+    <% end %>
+  </td>
+</tr>

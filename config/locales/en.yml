@@ -28,7 +28,7 @@ en:
       delete: "Delete"
       show: "Detail"
       update: "Update"
-      up_subject: "Assign Subject"
+      up_subject: "View Subject"
       submit: "Subit"
     label:
       owner: "Owner"
@@ -101,7 +101,9 @@ en:
       name: "Name"
       description: "Description"
       status: "Status"
-      start: "Start Course"
+      start: "Start"
+      closed: "Close"
+      action: "Action"
     subjects:
       allSubject: "All subjects"
       newSubject: "Create subject"
