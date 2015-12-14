@@ -1,0 +1,28 @@
+<% provide :title, t("supervisor.users.all_users") %>
+<div class="page-header">
+  <h2><%= t"supervisor.users.all_trainees" %></h2>
+  <button class="btn btn-default"><%= link_to t("supervisor.users.new_trainee"), new_supervisor_user_path %></button>
+</div>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "application.model.nameShow" %></th>
+      <th><%= t "application.model.emailShow" %></th>
+      <th><%= t "supervisor.users.progress"%></th>
+      <th><%= t "supervisor.users.edit" %></th>
+      <th><%= t "supervisor.users.delete" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><span class="btn btn-info"><%= link_to t("supervisor.users.view_progress")%></span></td>
+        <td><span class="btn btn-primary"><%= link_to t("supervisor.users.edit")%></span></td>
+        <td><span class="btn btn-danger"><%= link_to t("supervisor.users.delete")%></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
