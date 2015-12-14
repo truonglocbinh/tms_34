@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215073345) do
+ActiveRecord::Schema.define(version: 20151216014923) do
 
   create_table "activities", force: :cascade do |t|
     t.text     "description"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20151215073345) do
     t.integer  "status"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "create_by"
+    t.integer  "user_id"
     t.date     "finished"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

@@ -39,8 +39,6 @@
           </span>
         </div>
       </div>
-
-      <%= f.hidden_field :create_by, value: current_user.id %>
       <%= f.hidden_field :status, value: :pending %>
       <div>
         <%= f.fields_for :course_subjects do |builder| %>

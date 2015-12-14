@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :remember_token
   enum role: [:trainee, :supervisor, :admin]
+
   has_many :activities, dependent: :destroy
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
@@ -11,7 +12,6 @@ class User < ActiveRecord::Base
   has_many :user_tasks, dependent: :destroy
   has_many :tasks, through: :user_tasks
 
-
   validates :email, presence: true, length: {maximum: 255},
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
@@ -19,9 +19,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   scope :trainees, -> {trainee}
-  scope :supervisors, -> {supervisor}
+  scope :supervisors, -> {supervisor | admin}
   scope :excluded, -> user {where.not id: user.id}
-
   before_save :downcase_email
   has_secure_password
 

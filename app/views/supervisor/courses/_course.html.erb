@@ -6,7 +6,7 @@
   <td><%= course.start_date %></td>
   <td><%= course.end_date %></td>
   <td>
-    <% if course.create_by == current_user.id %>
+    <% if course.owner == current_user %>
       <span class="label label-danger"><%= t "application.label.owner"%></span>
     <% elsif course.users.include? current_user %>
       <span class="label label-success"><%= t "application.label.super" %></span>
@@ -19,7 +19,7 @@
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <% if course.create_by == current_user.id %>
+      <% if course.owner == current_user %>
       <li>
         <%= link_to t("application.button.edit"), edit_supervisor_course_path(course) %>
       </li>
@@ -28,7 +28,7 @@
           method: :delete, data: {confirm: t("application.general.confirm")} %>
       </li>
       <% end %>
-      <li><%= link_to t("application.button.show"),"#" %></li>
+      <li><%= link_to t("application.button.show"), supervisor_course_path(course) %></li>
     </ul>
     </div>
   </td>
