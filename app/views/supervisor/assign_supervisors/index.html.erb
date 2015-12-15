@@ -1,0 +1,19 @@
+<h1><%= t "supervisor.user_courses.add_supervisor" %></h1>
+<div class="row">
+  <%= form_for [:supervisor, @course] do |f| %>
+    <%= f.fields_for :user_courses do |builder| %>
+      <% user = builder.object.user %>
+      <% unless user.trainee? %>
+        <div>
+          <%= builder.hidden_field :user_id %>
+          <%= builder.hidden_field :is_active, value: false %>
+          <%= builder.check_box :_destroy,
+            {checked: builder.object.persisted?, class: "form-control"},
+              false, true %>
+          <%= user.name %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= f.submit t("application.button.submit"), class: "btn btn-primary" %>
+  <% end %>
+</div>

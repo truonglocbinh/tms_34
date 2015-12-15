@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :users
     resources :subjects
     resources :courses  do
-      resources :course_subjects, :assign_trainees
+      resources :course_subjects, :assign_trainees, :assign_supervisors
     end
    end
 end

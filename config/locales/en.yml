@@ -66,7 +66,7 @@ en:
     login_failed: "Invalid email/password combination"
     required_login: "You must login to view this resources"
     only_supervisor: "You are not supervisor "
-    subject_update_success: "Subject update success"
+    course_update_success: "Course update success"
     subject_update_failed: "Subject update failed"
     create_course: "Create Course success"
     create_subject: "Create subject success"
@@ -154,3 +154,5 @@ en:
       delete_confirm: "Are you sure?"
       delete_flash_success: "Success delete record!"
       delete_flash_fail: "Fail delete record!"
+    user_courses:
+      add_supervisor: "Add supervisor"

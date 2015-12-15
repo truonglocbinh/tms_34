@@ -1,11 +1,12 @@
 class Supervisor::CourseSubjectsController < Supervisor::BaseController
   before_action :load_course, only: [:index, :update]
+
   def index
     @course_subjects = @course.course_subjects
   end
 
   def update
-    if @course.users.include? current_user
+    if @course.users.include? current_user or @course.owner == current_user
       change_status
     else
       respond_to do |format|
@@ -15,10 +16,6 @@ class Supervisor::CourseSubjectsController < Supervisor::BaseController
   end
 
   private
-  def load_course
-    @course = Course.find params[:course_id]
-  end
-
   def change_status
     @course_subject = CourseSubject.find params[:id]
     if @course_subject.pending?
