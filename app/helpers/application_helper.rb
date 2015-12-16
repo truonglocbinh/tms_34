@@ -23,5 +23,9 @@ module ApplicationHelper
       \"#{escape_javascript(fields)}\")", remote: true
   end
 
-
+  def percent_complete_subject subject, user_subject
+    percent = subject.tasks.count > 0 ?
+      user_subject.user_tasks.count * 100.0 / subject.tasks.count : 0
+      number_to_percentage percent, precision: 0
+  end
 end
