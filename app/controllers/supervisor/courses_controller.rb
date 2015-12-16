@@ -7,6 +7,13 @@ class Supervisor::CoursesController < Supervisor::BaseController
     @courses = Course.all.paginate page: params[:page]
   end
 
+  def show
+    @owner = @course.owner
+    @subjects = @course.subjects
+    @trainees = @course.users.trainees
+    @supervisors = @course.users.supervisors
+  end
+
   def new
     @course = Course.new
     @subjects = Subject.all
@@ -17,6 +24,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def create
     @course = Course.new course_params
+    @course.owner = current_user
     if @course.save
       flash[:success] = t "flash.create_course"
       redirect_to supervisor_root_url
@@ -58,7 +66,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   private
   def course_params
     params.require(:course).permit :name, :description, :start_date, :end_date,
-      :status, :create_by, course_subjects_attributes:[:id, :course_id, :subject_id, :_destroy]
+      :status, course_subjects_attributes:[:id, :course_id, :subject_id, :_destroy]
   end
 
   def load_course
@@ -73,7 +81,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def verify_owner
-    @user = User.find_by_id @course.create_by
+    @user = @course.owner
     if @user != current_user
       flash[:danger] =  t "flash.owner"
       redirect_to supervisor_root_url

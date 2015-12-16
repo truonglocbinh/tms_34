@@ -2,6 +2,7 @@ en:
   date:
     formats:
       default: "%Y-%m-%d"
+      date_rails: "%d-%m-%Y"
   application:
     general:
       base_title: "System Management Training"
@@ -104,6 +105,10 @@ en:
        title: "All Courses"
        new_course: "New Course"
        edit_course: "Edit course"
+      show:
+       create_by: "Create by "
+       trainee: "Trainee"
+       supervisor: "Supervisor"
     course_subjects:
       no_subject: "No Subject for course"
       name: "Name"

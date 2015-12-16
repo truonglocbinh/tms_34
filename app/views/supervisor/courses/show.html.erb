@@ -1,0 +1,40 @@
+<div class="row">
+  <h3><%= t ".create_by" %><%= @owner.name %></h3>
+  <div class="group-info">
+    <button class="btn btn-primary" type="button">
+      <%= t ".trainee" %> <span class="badge"><%= @trainees.size %></span>
+    </button>
+    <button class="btn btn-primary" type="button">
+      <%= t ".supervisor" %> <span class="badge"><%= @supervisors.size %></span>
+    </button>
+    <button class="btn btn-primary" type="button">
+      <%= t ".subject" %> <span class="badge"><%= @subjects.size %></span>
+    </button>
+  </div>
+</div>
+<div class="row panel">
+  <table class="table table-bordered">
+    <thead>
+      <tr class="warning">
+        <td><%= t "application.model.course.name" %></td>
+        <td><%= t "application.model.course.description" %></td>
+        <td><%= t "application.model.course.status" %></td>
+        <td><%= t "application.model.course.start_date" %></td>
+        <td><%= t "application.model.course.end_date" %></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @course.name %></td>
+        <td class="description"><%= @course.description %></td>
+        <td><span class="label label-info"><%= @course.status %></span></td>
+        <td>
+          <%= @course.start_date.strftime I18n.t("date.formats.date_rails") %>
+        </td>
+        <td>
+          <%= @course.end_date.strftime I18n.t("date.formats.date_rails") %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
