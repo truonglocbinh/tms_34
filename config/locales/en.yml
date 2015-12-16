@@ -94,6 +94,7 @@ en:
   user_subjects:
     show:
       update: "Update"
+      progress: "Progress Bar With Label"
     update:
       success: "Update success"
       errors: "Update errors"

@@ -29,7 +29,9 @@ function add_fields(link, association, content) {
 }
 
 $(document).on("ready page:load", function(event) {
+  var percent = $(".progress-bar").html()
   $(function() {
     $(".datetimepicker").datetimepicker();
+    $(".progress-bar").css("width", percent);
   });
 });
