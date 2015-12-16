@@ -32,7 +32,7 @@ en:
       delete: "Delete"
       show_trainee: "View Trainee"
       update: "Update"
-      up_subject: "Assign Subject"
+      up_subject: "Subject"
       submit: "Submit"
     label:
       owner: "Owner"
@@ -106,18 +106,25 @@ en:
   supervisor:
     courses:
       new:
-       title: "All Courses"
-       new_course: "New Course"
-       edit_course: "Edit course"
+        title: "All Courses"
+        new_course: "New Course"
+        edit_course: "Edit course"
       show:
-       create_by: "Create by "
-       trainee: "Trainee"
-       supervisor: "Supervisor"
-       name: "UserName"
-       email: "Email"
-       status: "Status"
-       active: "active"
-       all_trainee: "All Trainee"
+        create_by: "Create by"
+        trainee: "Trainee"
+        supervisor: "Supervisor"
+        name: "UserName"
+        email: "Email"
+        status: "Status"
+        active: "active"
+        all_trainee: "All Trainee"
+        title: "All Courses"
+        new_course: "New Course"
+        edit_course: "Edit course"
+      index:
+        method: "Method"
+        start: "Start"
+        finished: "Finish"
     course_subjects:
       no_subject: "No Subject for course"
       name: "Name"

@@ -15,6 +15,14 @@
     <% end %>
   </td>
   <td>
+    <% if course.pending? %>
+      <%= form_for [:supervisor,course] do |f| %>
+        <%= f.hidden_field :status, value: :starting %>
+        <%= f.submit t("supervisor.courses.index.start"), class: "btn btn-success col-md-8" %>
+      <% end %>
+    <% end %>
+  </td>
+  <td>
     <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
     <span class="caret"></span></button>
