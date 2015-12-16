@@ -20,13 +20,15 @@
             </a>
           <% end %>
         </p>
-        <p>
-          <% @subjects.each do |subject|  %>
-            <%= link_to [@course,@subject] do %>
-                <%= subject.name %>
-              <% end %>
-          <% end %>
-        </p>
+        <div class="row">
+          <div class="col-md-12">
+            <% @user_subjects.each do |user_subject| %>
+              <div class="col-md-3">
+                <%= link_to user_subject.subject.name, user_subject_path(user_subject) %>
+              </div>
+            <% end %>
+          </div>
+        </div>
         <p>
           <%= @course.description %>
         </p>

@@ -90,6 +90,13 @@ en:
       course: "course"
     show:
       members: "Members: "
+
+  user_subjects:
+    show:
+      update: "Update"
+    update:
+      success: "Update success"
+      errors: "Update errors"
   supervisor:
     courses:
       new:

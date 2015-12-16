@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="block">
+
+        <% if user_course.is_active == true %>
+          <%= link_to user_course.course do %>
+            <h3>
+              <%= user_course.course.name %>
+            </h3>
+          <% end %>
+        <% else %>
+          <h3>
+            <%= user_course.course.name %>
+          </h3>
+        <% end %>
+
+      <p>
+        <span>
+          <i class="glyphicon glyphicon-calendar"></i>
+        </span>
+        <%= t ".from" %>
+        <%= user_course.course.start_date.strftime "%d-%m-%Y" %>
+        <%= t ".to" %>
+        <%= user_course.course.end_date.strftime "%d-%m-%Y" %>
+      </p>
+
+      <p>
+        <%= user_course.course.description %>
+      </p>
+    </div>
+  </div>
+</div>
