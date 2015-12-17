@@ -27,7 +27,7 @@ en:
       create_course: "Create"
       edit: "Edit"
       delete: "Delete"
-      show: "Detail"
+      show_trainee: "View Trainee"
       update: "Update"
       up_subject: "View Subject"
       submit: "Subit"
@@ -59,7 +59,6 @@ en:
     course:
       start_end: "Start date can not greater than end_date"
       blank: "Date can not blank"
-
   flash:
     login_failed: "Invalid email/password combination"
     required_login: "You must login to view this resources"
@@ -91,7 +90,6 @@ en:
       course: "course"
     show:
       members: "Members: "
-
   user_subjects:
     show:
       update: "Update"
@@ -109,6 +107,11 @@ en:
        create_by: "Create by "
        trainee: "Trainee"
        supervisor: "Supervisor"
+       name: "UserName"
+       email: "Email"
+       status: "Status"
+       active: "active"
+       all_trainee: "All Trainee"
     course_subjects:
       no_subject: "No Subject for course"
       name: "Name"
@@ -127,3 +130,4 @@ en:
       editSubject: "Edit subject"
     tasks:
       taksName: "Task"
+
