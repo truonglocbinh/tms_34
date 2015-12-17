@@ -19,9 +19,9 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><span class="btn btn-info"><%= link_to t("supervisor.users.view_progress")%></span></td>
-        <td><span class="btn btn-primary"><%= link_to t("supervisor.users.edit")%></span></td>
-        <td><span class="btn btn-danger"><%= link_to t("supervisor.users.delete")%></span></td>
+        <td><%= link_to t("supervisor.users.view_progress"), edit_supervisor_user_path(user), class: "btn btn-info" %></td>
+        <td><%= link_to t("supervisor.users.edit"), edit_supervisor_user_path(user), class: "btn btn-primary" %></td>
+        <td><%= link_to t("supervisor.users.delete"), supervisor_user_path(user), method: :delete, data: {confirm: t("supervisor.users.delete_confirm")}, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
