@@ -1,8 +1,23 @@
 <% provide :title, t("application.general.allUser") %>
-<h1><%= t("application.general.showall") %></h1>
-<%= will_paginate %>
-  <div class="col-md-12">
-    <%= render @users %>
-    <hr>
-  </div>
-<%= will_paginate %>
+<div class="page-header">
+  <h2><%= t"supervisor.users.all_trainees" %></h2>
+</div>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "application.model.nameShow" %></th>
+      <th><%= t "application.model.emailShow" %></th>
+      <th><%= t "supervisor.users.progress"%> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><span class="btn btn-info"><%= link_to t("supervisor.users.view_progress"), user_path(user) %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
