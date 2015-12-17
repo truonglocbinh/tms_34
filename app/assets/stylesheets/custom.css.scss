@@ -125,18 +125,18 @@ h1 {
 
 .row.information {
   border: 1px solid #000099;
-  width:600px;
+  width: 600px;
   margin-top: 40px;
-  margin-left:150px;
-  height:70px;
+  margin-left: 150px;
+  height: 70px;
   .row1 {
-    margin-top:10px;
+    margin-top: 10px;
     span {
       color: #FF6600;
     }
   }
   .row2{
-    margin-top:10px;
+    margin-top: 10px;
     span {
       color: #FF6600;
     }
@@ -148,8 +148,8 @@ h1 {
 hr {
   color: #fff;
   height: 1px;
-  width:80%;
-  float:left;
+  width: 100%;
+  float: left;
   background-color: #000099;
 }
 
@@ -191,4 +191,11 @@ hr {
 
 .group-info{
   margin-bottom: 20px;
+  table.table-striped {
+    tr {
+      a {
+        color: white;
+      }
+    }
+  }
 }

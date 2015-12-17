@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  before_validation :default_password
 
   attr_accessor :remember_token
   enum role: [:trainee, :supervisor, :admin]
@@ -53,5 +54,9 @@ class User < ActiveRecord::Base
   private
   def downcase_email
     self.email = email.downcase
+  end
+
+  def default_password
+    self.password = "password" if self.trainee? && !self.password_digest
   end
 end

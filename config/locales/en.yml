@@ -29,8 +29,8 @@ en:
       delete: "Delete"
       show_trainee: "View Trainee"
       update: "Update"
-      up_subject: "View Subject"
-      submit: "Subit"
+      up_subject: "Assign Subject"
+      submit: "Submit"
     label:
       owner: "Owner"
       super: "Supervisor"
@@ -130,4 +130,14 @@ en:
       editSubject: "Edit subject"
     tasks:
       taksName: "Task"
-
+    users:
+      all_users: "All users"
+      all_trainee: "All trainees"
+      new_trainee: "New trainee"
+      view_progress: "View"
+      progress: "Progress"
+      edit: "Edit"
+      delete: "Delete"
+      name_trainee: "Trainee name"
+      email_trainee: "Trainee email"
+      success_create_trainee: "Create trainee successfully!"

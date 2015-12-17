@@ -1,0 +1,9 @@
+<% provide :title, t("supervisor.users.new_trainee") %>
+<div class="header page">
+  <h2><%= t "supervisor.users.new_trainee" %></h2>
+  <hr>
+</div>
+
+<%= form_for [:supervisor, @user] do |f| %>
+  <%= render "form", f: f %>
+<% end %>

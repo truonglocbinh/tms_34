@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :supervisor do
     root "courses#index"
+    resources :users
     resources :subjects
     resources :courses  do
       resources :course_subjects, :assign_trainees

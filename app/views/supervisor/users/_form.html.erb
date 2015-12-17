@@ -1,0 +1,14 @@
+<%= render "shared/error_messages", object: @user %>
+<%= f.hidden_field :role, value: :trainee %>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control", placeholder: t("supervisor.users.name_trainee") %>
+</div>
+<div class="form-group">
+  <%= f.label :email %>
+  <%= f.text_field :email, class: "form-control", placeholder: t("supervisor.users.email_trainee") %>
+</div>
+
+<div class="form-group">
+  <%= f.submit t("application.button.submit"), class: "btn btn-lg btn-success" %>
+</div>
