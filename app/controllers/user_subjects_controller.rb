@@ -3,13 +3,14 @@ class UserSubjectsController < ApplicationController
   before_action :authenticate_user!
 
   def update
-    if @user_subject.update user_subject_params
-      flash[:success] = t ".success"
-    else
-      flash[:danger] = t ".errors"
+    @user_subject.status = false if params[:finish]
+      if @user_subject.update_attributes user_subject_params
+        flash[:success] = t ".success"
+      else
+        flash[:danger] = t ".errors"
+      end
+      redirect_to user_subject_path @user_subject
     end
-    redirect_to user_subject_path @user_subject
-  end
 
   def show
     @tasks = @subject.tasks

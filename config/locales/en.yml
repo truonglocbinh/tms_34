@@ -94,9 +94,12 @@ en:
     show:
       update: "Update"
       progress: "Progress Bar With Label"
+      finish: "finish"
+      confirm: "You really want to finish subject!"
     update:
       success: "Update success"
       errors: "Update errors"
+      finish: "Your Subject has finish"
   supervisor:
     courses:
       new:
