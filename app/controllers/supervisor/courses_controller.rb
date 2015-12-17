@@ -45,7 +45,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def update
     if @course.update_attributes course_params
-      flash[:success] = t "flash.subject_update_success"
+      flash[:success] = t "flash.course_update_success"
       redirect_to supervisor_root_url
     else
       flash[:danger] = t "flash.subject_update_failed"
@@ -66,18 +66,12 @@ class Supervisor::CoursesController < Supervisor::BaseController
   private
   def course_params
     params.require(:course).permit :name, :description, :start_date, :end_date,
-      :status, course_subjects_attributes:[:id, :course_id, :subject_id, :_destroy]
+      :status, course_subjects_attributes:[:id, :course_id, :subject_id, :_destroy],
+      user_courses_attributes:[:id, :user_id, :course_id, :is_active, :_destroy]
   end
 
   def load_course
     @course = Course.find params[:id]
-  end
-
-  def verify_supervisor
-    unless @course.users.include? current_user
-      flash[:danger] = t "flash.only_supervisor"
-      redirect_to :back
-    end
   end
 
   def verify_owner

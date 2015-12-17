@@ -43,11 +43,13 @@ class Supervisor::SubjectsController < ApplicationController
       render :new
     end
   end
+
   private
   def subject_params
     params.require(:subject).permit :name, :description,
       tasks_attributes: [:id, :name, :description, :order, :_destroy]
   end
+
   def load_subjects
     @subject = Subject.find params[:id]
   end
