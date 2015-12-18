@@ -6,6 +6,7 @@ class Supervisor::SubjectsController < ApplicationController
   end
 
   def show
+    @tasks = @subject.tasks
   end
 
   def new
