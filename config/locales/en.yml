@@ -26,6 +26,7 @@ en:
       allUser: "All users"
       showProfile: "Show profile"
       users: "Users"
+      task: "All tasks"
     button:
       create_course: "Create"
       edit: "Edit"
@@ -143,6 +144,7 @@ en:
       editSubject: "Edit subject"
     tasks:
       taksName: "Task"
+      view_task: "View"
     users:
       all_users: "All users"
       all_trainee: "All trainees"

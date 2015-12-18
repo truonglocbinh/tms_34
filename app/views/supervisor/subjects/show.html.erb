@@ -7,8 +7,19 @@
     <li><%= link_to t("application.buttons.delete"),[:supervisor, @subject], method: :delete, data: {confirm: t("application.general.confirm")}, class: "btn btn-danger" %></li>
   </ul>
 </div>
+
 <br>
 <br>
-<% @subject.tasks.each do |task| %>
-  <h2><%= t("supervisor.tasks.taskName") %><%= task.name %><br/></h2>
-<% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <p><%= @subject.description %></p>
+    <fieldset class="fsStyle" id="fieldset_task_box">
+      <legend><%= t "application.general.task" %></legend>
+      <% @tasks.each do |task| %>
+        <div class="col-lg-2" id="task_box">
+          <h4><%= task.name %></h4>
+        </div>
+      <% end %>
+    </fieldset>
+  </div>
+</div>
