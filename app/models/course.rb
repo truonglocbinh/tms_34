@@ -23,6 +23,7 @@ class Course < ActiveRecord::Base
   scope :active, -> {where "is_active = ?" , true}
 
   after_save :add_user_subject
+  after_save :un_active_user_when_finish
 
   private
   def add_user_subject
@@ -40,6 +41,12 @@ class Course < ActiveRecord::Base
       errors.add(:start_date, I18n.t("errors.course.blank"))
     elsif start_date > end_date
       errors.add(:start_date, I18n.t("errors.course.start_end"))
+    end
+  end
+
+  def un_active_user_when_finish
+    if self.finished?
+      self.user_courses.update_all(is_active: false)
     end
   end
 end

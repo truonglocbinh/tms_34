@@ -20,6 +20,13 @@
         <%= f.hidden_field :status, value: :starting %>
         <%= f.submit t("supervisor.courses.index.start"), class: "btn btn-success col-md-8" %>
       <% end %>
+    <% elsif course.starting? %>
+      <%= form_for [:supervisor, course] do |f| %>
+        <%= f.hidden_field :status, value: :finished %>
+        <%= f.submit t("supervisor.courses.index.finished"), class: "btn btn-danger col-md-8" %>
+      <% end %>
+    <% else %>
+      <span class="label label-default"><%= t "supervisor.courses.index.finished" %></span>
     <% end %>
   </td>
   <td>
